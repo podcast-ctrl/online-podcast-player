@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="yes">
+    <title>Spotify - Web Player: Video Podcast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="logos and cover images/spotifySymbol.png">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logos and cover images/spotifyLogo.png" alt="Spotify Logo" class="spotify-logo"><br>
+        </div>
+        <div class="podcast">
+            <div class="upper-container">
+                <img src="control images/spotifybackarrow.png" alt="Spotify Back Arrow" class="spotify-back-arrow">
+                <p class="upper-podcast-name">Huberman Lab</p><br>
+                <img src="control images/threedotsmenu.png" alt="Three Dots Menu" id="threeDotsMenu" class="upper-icon">
+            </div>
+            <video id="videoPlayer" class="podcast-cover">
+                <source src="videos/Direct.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="podcast-details">
+                <h2 class="episode-title">How To Improve Skin Health and Appearance</h2>
+                <p class="podcast-name">Huberman Lab</p><br>
+            </div>
+            <div class="audio-container">
+                <div class="progress-slider-container">
+                    <input type="range" id="progressSlider" class="progress-slider" min="0" max="100" step="0.1" value="0">
+                    <div class="time-display">
+                        <span id="currentTime">00:00</span>
+                        <span id="totalTime">-02:59</span>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="speed-control">
+                    <button id="speedBtn" class="control-button">
+                        <img src="speed images/speed1x.png" alt="1×" class="speed-icon">
+                    </button>
+                    <div id="speedOptions" class="speed-options">
+                        <button class="speed-option" data-speed="2" data-button-image="speed images/speed2x.png">
+                            <img src="speed images/speed2x_menu.png" alt="2×" class="speed-icon">
+                        </button>
+                        <button class="speed-option" data-speed="1.5" data-button-image="speed images/speed1.5x.png">
+                            <img src="speed images/speed1.5x_menu.png" alt="1.5×" class="speed-icon">
+                        </button>
+                        <button class="speed-option" data-speed="1" data-button-image="speed images/speed1x.png">
+                            <img src="speed images/speed1x_menu.png" alt="1×" class="speed-icon">
+                        </button>
+                        <button class="speed-option" data-speed="0.7" data-button-image="speed images/speed0.7x.png">
+                            <img src="speed images/speed0.7x_menu.png" alt="0.7×" class="speed-icon">
+                        </button>
+                    </div>
+                </div>
+                <img id="backBtn" class="control-image" src="control images/spotifyback15.png" alt="Back">
+                <img id="pauseBtn" class="control-image" src="control images/spotifyplay.png" alt="Pause">
+                <img id="forwardBtn" class="control-image" src="control images/spotifyforward15.png" alt="Forward">
+                <img id="sleepTimerBtn" class="control-image" src="control images/sleeptimer.png" alt="Sleep Timer">
+                <div id="sleepTimerOptions" class="popup-options">
+                    <p class="sleep-timer-title">Sleep Timer</p>
+                    <button class="timer-option" data-time="5">5 minutes</button>
+                    <button class="timer-option" data-time="10">10 minutes</button>
+                    <button class="timer-option" data-time="15">15 minutes</button>
+                </div>
+                <div id="notification" class="notification" style="display: none;"></div>
+            </div>
+            <div class="extra-controls">
+                <img id="chooseDeviceBtn" class="control-image" src="control images/choosedevice.png" alt="Choose Device">
+                <div id="chooseDeviceOptions" class="popup-options">
+                    <p>Functionality is disabled</p>
+                </div>
+                <img id="shareBtn" class="control-image" src="control images/share.png" alt="Share">
+                <div id="shareOptions" class="popup-options">
+                    <p>Functionality is disabled</p>
+                </div>
+                <img id="queueBtn" class="control-image" src="control images/queue.png" alt="Queue">
+                <div id="queueOptions" class="popup-options">
+                    <p>Functionality is disabled</p>
+                </div>
+            </div>
+            <div id="relatedEpisodes" class="related-episodes">
+                <div id="relatedtext">Explore related episodes</div>
+            </div>
+            <div id="relatedEpisodesPopup" class="popup-options">
+                <p>Functionality is disabled</p>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

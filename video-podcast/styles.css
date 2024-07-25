@@ -1,0 +1,515 @@
+/* General styles */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: #121212;
+    overflow: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0; /* Adjust padding as needed */
+}
+
+/* Logo styles */
+.logo-container {
+    margin-top: 25px;
+    text-align: center;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+}
+
+.spotify-logo {
+    width: 110px; /* Adjust size as needed */
+    height: auto;
+}
+
+.podcast {
+    background:#090909;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.upper-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the podcast name */
+    width: 100%; /* Ensure it spans the width of the podcast box */
+    position: relative; /* Positioning context for the arrow */
+    padding: 5px 0; /* Adjust padding as needed */
+    padding-top: 10px;
+}
+
+.spotify-back-arrow {
+    width: auto;
+    height: 30px;
+    position: absolute; /* Absolute positioning to place it in the line */
+    left: 6px; /* Adjust as needed */
+    cursor: pointer; /* Optional: Add a pointer cursor */
+    bottom: 5px;
+}
+
+.upper-podcast-name {
+    font-size: 10px;
+    font-weight: 650;
+    text-align: center;
+}
+
+#threeDotsMenu {
+    width: 40px; /* Adjust size if needed */
+    height: auto; /* Adjust size if needed */
+    cursor: pointer;
+    right: -2px; /* Adjust as needed */
+    position:absolute;
+
+}
+
+.podcast-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+    margin: 0 auto 10px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.podcast-details {
+    text-align: left;
+    width: 275px; /* Same as podcast cover width */
+    overflow: hidden; /* Ensure text does not overflow the container */
+    white-space: nowrap; /* Keep text in one line */
+    position: relative;
+    margin-bottom: 2px;
+    line-height: 50%;
+}
+
+
+.episode-title {
+    font-size: 18px;
+    margin-bottom: 2px;
+    font-weight: 675;    
+    display: inline-block;
+    animation: scrollTitle 16s linear infinite;
+    animation-delay: 2.5s;
+}
+
+@keyframes scrollTitle {
+    0% { transform: translateX(0); }
+    35% { transform: translateX(-33%); }
+    50% { transform: translateX(-33%); }
+    85% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+}
+
+.podcast-name {
+    font-size: 12px;
+    margin-bottom: 2px;
+    color: #9eb6bf;
+    font-weight: 550;
+}
+
+.progress-slider-container {
+    width: 275px;
+    margin-top: 2px;
+}
+
+.progress-slider {
+    width: 100%;
+    height: 2.19px;
+    background-color: #4e5152;
+    border-radius: 5px; 
+    cursor: pointer;
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+}
+
+.progress-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 100%; /* Make it square */
+    cursor: pointer;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 6px;
+    padding-left: 3px;
+}
+
+#currentTime, #totalTime {
+    font-size: 8px;
+    color: #b7ceda;    
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjusted gap */
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    align-items: center;
+    position: relative;
+}
+
+/* Style for the control images */
+.control-image {
+    width: 36px; /* Adjust the width and height as needed */
+    height: 33px;
+    cursor: pointer;
+}
+
+#pauseBtn {
+    width: 72px; /* Adjust the width as needed */
+    height: 67px; /* Adjust the height as needed */
+    transition: transform .2s;
+}
+
+#pauseBtn:hover {
+    transform:scale(1.05);
+    opacity: 1;
+}
+
+.control-button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.control-button:hover {
+    color: #8f8f8f;
+}
+
+.control-image:hover {
+    opacity: .7;
+}
+
+#speedBtn:hover {
+    opacity: .7;
+}
+
+.speed-control {
+    position: absolute;
+    left: 0px;
+    bottom: 3px;
+}
+
+.speed-control button {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.speed-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.speed-options {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background: #3c3c3c;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.speed-option {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    background: #fff;
+    border-bottom: 1px solid #666;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.speed-option img {
+    width: 40px;
+    height: auto;
+}
+
+.speed-option:hover {
+    background: #b1b1b1;
+    border-radius: 5px;
+}
+
+#sleepTimerBtn {
+    position:absolute;
+    right:-2px;
+    width: 45px;
+    height: auto;
+}
+
+#sleepTimerOptions {
+    position:absolute;
+    bottom:40px;
+    right:10px;
+}
+
+.sleep-timer-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Add some space below the title */
+    text-align: center; /* Center the text */
+    padding-bottom:8px;
+}
+
+.timer-option {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    background: transparent; /* Remove white background */
+    border: none; /* Remove border */
+    color: #ffffff; /* Keep text color */
+    text-align: left;
+    width: 100%;
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+
+.timer-option:hover {
+    background: #b1b1b1; /* Keep hover effect */
+    border-radius: 5px; /* Optional: add some rounding */
+}
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3c3c3c; /* Custom background color */
+    color: white;
+    padding: 20px;
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: opacity 0.5s;
+    opacity: 0;
+    width: 100px; /* Set width for square shape */
+    text-align: center;
+    font-size: 12px;
+}
+.notification.show {
+    opacity: 1;
+}
+
+/* Styles for the new extra controls */
+.extra-controls {
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: -5px;
+    gap: 20px; /* Add space between icons */
+    position: relative;
+    bottom:30px;
+}
+
+.extra-controls .control-image {
+    width: 46px; /* Adjust the width and height as needed */
+    height: auto;
+    cursor: pointer;
+}
+
+.extra-controls .control-image:hover {
+    opacity: .7;
+}
+
+#chooseDeviceBtn {
+    position:absolute;
+    left:0px;
+}
+
+#shareBtn {
+    position:absolute;
+    right:40px;
+}
+
+#queueBtn {
+    position:absolute;
+    right:-3px;
+}
+
+.popup-options {
+    display: none;
+    position: absolute;
+    bottom: -12px; /* Ensure it is above the button */
+    background: #3c3c3c;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.popup-options p {
+    margin: 0;
+}
+
+/* Ensure these are above other elements */
+#chooseDeviceOptions, #shareOptions, #queueOptions {
+    z-index: 1001;
+}
+
+/* Adjust positioning for extra controls */
+#chooseDeviceOptions {
+    left: 0;
+    right: auto;
+}
+
+#shareOptions {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#queueOptions {
+    right: 0;
+    left: auto;
+}
+
+/* Original styling for the related episodes box */
+#relatedEpisodes {
+    position: relative;
+    background-color: #292929;
+    border-radius: 12px;
+    height: 60px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflow */
+    bottom: -30px;
+    width: 285px;
+    cursor: pointer; /* Make the box clickable */
+}
+
+#relatedtext {
+    padding-left: 14px;
+    font-weight: bold;
+    font-size: 11.5px;
+    padding-top: 13px;
+}
+
+/* Style for the popup message */
+#relatedEpisodesPopup {
+    display: none;
+    position: absolute;
+    bottom:10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    background-color: #3c3c3c;
+    color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Styles for the sponsored box */
+.sponsored-box {
+    width:85%;
+    background-color: #1c1c1c; /* Dark background color */
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    margin-top: -18px;
+    margin-bottom: 3px;
+}
+
+.sponsored-header {
+    font-weight:600;
+    margin-bottom: 5px;
+    font-size: 8px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    letter-spacing: .5px;
+}
+
+.sponsored-content {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+
+.company-logo {
+    width: 54px; /* Adjust as needed */
+    height: auto;
+    margin-right: 4px;
+    border-radius: 5px;
+}
+
+.company-details {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+    flex-grow: 1;
+    justify-content: center;
+    position: relative;
+    top:6px;
+}
+
+.company-name {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    margin-top: 6px;
+}
+
+.company-tagline {
+    font-size: 9px;
+    color: #b0b0b0;
+}
+
+.sponsored-button {
+    background-color: #ffffff; 
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 9px;
+    transition: background-color 0.3s ease;
+    font-weight: bolder;
+    width:auto;
+    margin-left: auto;
+    margin-right: 2px;
+    position: relative;
+    bottom:24px;
+}
+
+.sponsored-button:hover {
+    background-color: #b1b1b1; /* Slightly darker green */
+}
