@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full viewport height */
+    height: 100%; /* Full viewport height */
 }
 
 .container {
@@ -24,7 +24,6 @@ body {
 
 /* Logo styles */
 .logo-container {
-    margin-top: 25px;
     text-align: center;
     margin-bottom: 20px; /* Adjust spacing as needed */
 }
@@ -105,14 +104,14 @@ body {
     margin-bottom: 2px;
     font-weight: 675;    
     display: inline-block;
-    animation: scrollTitle 16s linear infinite;
+    animation: scrollTitle 50s linear infinite;
     animation-delay: 2.5s;
 }
 
 @keyframes scrollTitle {
     0% { transform: translateX(0); }
-    35% { transform: translateX(-33%); }
-    50% { transform: translateX(-33%); }
+    35% { transform: translateX(-63%); }
+    50% { transform: translateX(-63%); }
     85% { transform: translateX(0); }
     100% { transform: translateX(0); }
 }
@@ -420,38 +419,22 @@ body {
     padding-top: 13px;
 }
 
-/* Style for the popup message */
-#relatedEpisodesPopup {
-    display: none;
-    position: absolute;
-    bottom:10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    background-color: #3c3c3c;
-    color: #fff;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
-}
-
 /* Styles for the sponsored box */
 .sponsored-box {
-    width:85%;
+    width:90%;
     background-color: #1c1c1c; /* Dark background color */
     border-radius: 10px;
     padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: white;
-    margin-top: -18px;
-    margin-bottom: 3px;
+    margin-top: -9px;
+    margin-bottom: 7px;
 }
 
 .sponsored-header {
-    font-weight:600;
-    margin-bottom: 5px;
-    font-size: 8px;
+    font-weight:550;
+    margin-bottom: 7px;
+    font-size: 9px;
     text-transform: uppercase;
     padding-left: 10px;
     letter-spacing: .5px;
@@ -465,10 +448,11 @@ body {
 }
 
 .company-logo {
-    width: 54px; /* Adjust as needed */
+    width: 70px; /* Adjust as needed */
     height: auto;
-    margin-right: 4px;
+    margin-right: 7px;
     border-radius: 5px;
+    margin-bottom: 3px;
 }
 
 .company-details {
@@ -478,19 +462,19 @@ body {
     flex-grow: 1;
     justify-content: center;
     position: relative;
-    top:6px;
+    margin-top: -5px;
 }
 
 .company-name {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     letter-spacing: .5px;
-    margin-top: 6px;
 }
 
 .company-tagline {
     font-size: 9px;
     color: #b0b0b0;
+    margin-bottom: 10px;
 }
 
 .sponsored-button {
@@ -500,16 +484,13 @@ body {
     padding: 6px 8px;
     border-radius: 50px;
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
     transition: background-color 0.3s ease;
     font-weight: bolder;
-    width:auto;
-    margin-left: auto;
-    margin-right: 2px;
-    position: relative;
-    bottom:24px;
+    width:40%;
 }
 
 .sponsored-button:hover {
     background-color: #b1b1b1; /* Slightly darker green */
 }
+
