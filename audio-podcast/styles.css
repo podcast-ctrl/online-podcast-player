@@ -38,7 +38,7 @@ body {
     border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 5px;
-    width: 300px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,8 +80,8 @@ body {
 }
 
 .podcast-cover {
-    width: 275px;
-    height: 275px;
+    width: 325px;
+    height: 325px;
     border-radius: 5px;
     margin: 0 auto 10px;
     margin-top: 22px;
@@ -90,7 +90,7 @@ body {
 
 .podcast-details {
     text-align: left;
-    width: 275px; /* Same as podcast cover width */
+    width: 325px; /* Same as podcast cover width */
     overflow: hidden; /* Ensure text does not overflow the container */
     white-space: nowrap; /* Keep text in one line */
     position: relative;
@@ -124,7 +124,7 @@ body {
 }
 
 .progress-slider-container {
-    width: 275px;
+    width: 325px;
     margin-top: 2px;
 }
 
@@ -444,7 +444,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: white;
     margin-top: -9px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .sponsored-header {
@@ -509,3 +509,4 @@ body {
 .sponsored-button:hover {
     background-color: #b1b1b1; /* Slightly darker green */
 }
+
