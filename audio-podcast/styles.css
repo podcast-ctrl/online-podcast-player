@@ -104,7 +104,7 @@ body {
     margin-bottom: 2px;
     font-weight: 675;    
     display: inline-block;
-    animation: scrollTitle 50s linear infinite;
+    animation: scrollTitle 60s linear infinite;
     animation-delay: 2.5s;
 }
 
@@ -156,7 +156,7 @@ body {
 }
 
 #currentTime, #totalTime {
-    font-size: 8px;
+    font-size: 9px;
     color: #b7ceda;    
 }
 
@@ -408,7 +408,7 @@ body {
     height: 60px; /* Adjust height as needed */
     overflow: hidden; /* Hide overflow */
     bottom: -28px;
-    width: 285px;
+    width: 335px;
     cursor: pointer; /* Make the box clickable */
 }
 
@@ -423,7 +423,6 @@ body {
 #relatedEpisodesPopup {
     display: none;
     position: absolute;
-    bottom:10px;
     left: 50%;
     transform: translateX(-50%);
     width: 150px;
@@ -443,8 +442,8 @@ body {
     padding: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: white;
-    margin-top: -9px;
-    margin-bottom: 10px;
+    margin-top: -4px;
+    margin-bottom: 12px;
 }
 
 .sponsored-header {
@@ -488,7 +487,7 @@ body {
 }
 
 .company-tagline {
-    font-size: 9px;
+    font-size: 10px;
     color: #b0b0b0;
     margin-bottom: 10px;
 }
