@@ -38,7 +38,7 @@ body {
     border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 5px;
-    width: 350px;
+    width: 325px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,8 +80,8 @@ body {
 }
 
 .podcast-cover {
-    width: 325px;
-    height: 325px;
+    width: 300px;
+    height: 300px;
     border-radius: 5px;
     margin: 0 auto 10px;
     margin-top: 22px;
@@ -90,7 +90,7 @@ body {
 
 .podcast-details {
     text-align: left;
-    width: 325px; /* Same as podcast cover width */
+    width: 300px; /* Same as podcast cover width */
     overflow: hidden; /* Ensure text does not overflow the container */
     white-space: nowrap; /* Keep text in one line */
     position: relative;
@@ -104,14 +104,14 @@ body {
     margin-bottom: 2px;
     font-weight: 675;    
     display: inline-block;
-    animation: scrollTitle 60s linear infinite;
+    animation: scrollTitle 58s linear infinite;
     animation-delay: 2.5s;
 }
 
 @keyframes scrollTitle {
     0% { transform: translateX(0); }
-    35% { transform: translateX(-63%); }
-    50% { transform: translateX(-63%); }
+    35% { transform: translateX(-60%); }
+    50% { transform: translateX(-60%); }
     85% { transform: translateX(0); }
     100% { transform: translateX(0); }
 }
@@ -124,7 +124,7 @@ body {
 }
 
 .progress-slider-container {
-    width: 325px;
+    width: 300px;
     margin-top: 2px;
 }
 
@@ -408,7 +408,7 @@ body {
     height: 60px; /* Adjust height as needed */
     overflow: hidden; /* Hide overflow */
     bottom: -28px;
-    width: 335px;
+    width: 310px;
     cursor: pointer; /* Make the box clickable */
 }
 
@@ -463,11 +463,11 @@ body {
 }
 
 .company-logo {
-    width: 70px; /* Adjust as needed */
+    width: 65px; /* Adjust as needed */
     height: auto;
     margin-right: 7px;
     border-radius: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .company-details {
@@ -489,7 +489,7 @@ body {
 .company-tagline {
     font-size: 10px;
     color: #b0b0b0;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .sponsored-button {
@@ -508,4 +508,3 @@ body {
 .sponsored-button:hover {
     background-color: #b1b1b1; /* Slightly darker green */
 }
-
