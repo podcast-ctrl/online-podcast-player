@@ -21,12 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const queueOptions = document.getElementById('queueOptions');
     const relatedEpisodesBox = document.getElementById("relatedEpisodes");
     const relatedEpisodesPopup = document.getElementById("relatedEpisodesPopup");
+    const speedPopup = document.getElementById('speedOptions');
+    const forwardPopup = document.getElementById('forwardBtnOptions');
+    const passcodeContainer = document.getElementById('passcode-container');
 
     // Toggle popups for choose device, share, queue, and related episodes
     chooseDeviceBtn.addEventListener('click', () => togglePopup(chooseDeviceOptions));
     shareBtn.addEventListener('click', () => togglePopup(shareOptions));
     queueBtn.addEventListener('click', () => togglePopup(queueOptions));
     relatedEpisodesBox.addEventListener("click", () => togglePopup(relatedEpisodesPopup));
+    speedBtn.addEventListener("click", () => togglePopup(speedPopup));
+    forwardBtn.addEventListener("click", () => togglePopup(forwardPopup));
 
     // Close popups if clicked outside
     document.addEventListener('click', function(event) {
@@ -45,6 +50,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!sleepTimerBtn.contains(event.target) && !sleepTimerOptions.contains(event.target)) {
             sleepTimerOptions.style.display = 'none';
         }
+        if (!forwardBtn.contains(event.target)) {
+            forwardPopup.style.display = 'none';
+        }
     });
 
     // Audio controls
@@ -53,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
         pauseBtn.src = audioPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
     });
-    forwardBtn.addEventListener('click', () => audioPlayer.currentTime += 15);
+    //forwardBtn.addEventListener('click', () => audioPlayer.currentTime += 15);
 
     // Update progress slider
     audioPlayer.addEventListener('timeupdate', function () {
@@ -81,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${hrs > 0 ? `${hrs}:` : ''}${mins < 10 ? '0' + mins : mins}:${secs < 10 ? '0' + secs : secs}`;
     }
 
-    // Speed controls
+    /* Disabled Speed controls
     speedBtn.addEventListener('click', () => {
         speedOptions.style.display = (speedOptions.style.display === 'block') ? 'none' : 'block';
     });
@@ -94,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
             speedBtn.querySelector('img').src = newButtonImage;
             speedOptions.style.display = 'none';
         });
-    });
+    }); */
 
     // Sleep timer
     sleepTimerBtn.addEventListener('click', () => {
@@ -125,6 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Playback has been paused due to sleep timer.');
         }, minutes * 60 * 1000);
     }
+
+    // passcode
+    // When the audio ends, display the passcode
+    audioPlayer.addEventListener('ended', function() {
+        passcodeContainer.style.display = 'block'; // Show the passcode container
+    });
 });
 
 function showNotification(message) {

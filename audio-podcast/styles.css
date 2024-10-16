@@ -508,3 +508,22 @@ body {
 .sponsored-button:hover {
     background-color: #b1b1b1; /* Slightly darker green */
 }
+
+.passcode-overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Position it over everything */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by 50% to center exactly */
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    color: white; /* Text color */
+    padding: 20px; /* Some padding for space */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Adjust font size */
+    z-index: 1000; /* Ensure it’s above all other content */
+    text-align: center; /* Center the text inside */
+}
+
+.passcode-overlay span {
+    font-weight: bold; /* Make the passcode stand out */
+}

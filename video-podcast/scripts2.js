@@ -13,6 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const sleepTimerOptions = document.getElementById('sleepTimerOptions');
     const timerOptions = document.querySelectorAll('.timer-option');
     let timer;
+    const speedPopup = document.getElementById('speedOptions');
+    const forwardPopup = document.getElementById('forwardBtnOptions');
+    const passcodeContainer = document.getElementById('passcode-container');
+
+    // no functionality for speed and forward buttons
+    speedBtn.addEventListener("click", () => togglePopup(speedPopup));
+    forwardBtn.addEventListener("click", () => togglePopup(forwardPopup));
 
     // Close popups if clicked outside
     document.addEventListener('click', function(event) {
@@ -22,15 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!sleepTimerBtn.contains(event.target) && !sleepTimerOptions.contains(event.target)) {
             sleepTimerOptions.style.display = 'none';
         }
+        if (!forwardBtn.contains(event.target)) {
+            forwardPopup.style.display = 'none';
+        }
     });
 
     // Video controls
+    // forwardBtn.addEventListener('click', () => videoPlayer.currentTime += 15);
     backBtn.addEventListener('click', () => videoPlayer.currentTime -= 15);
     pauseBtn.addEventListener('click', () => {
         videoPlayer.paused ? videoPlayer.play() : videoPlayer.pause();
         pauseBtn.src = videoPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
     });
-    forwardBtn.addEventListener('click', () => videoPlayer.currentTime += 15);
+    
 
     // Update progress slider
     videoPlayer.addEventListener('timeupdate', function () {
@@ -57,21 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const secs = Math.floor(seconds % 60);
         return `${hrs > 0 ? `${hrs}:` : ''}${mins < 10 ? '0' + mins : mins}:${secs < 10 ? '0' + secs : secs}`;
     }
-
-    // Speed controls
-    speedBtn.addEventListener('click', () => {
-        speedOptions.style.display = (speedOptions.style.display === 'block') ? 'none' : 'block';
-    });
-
-    speedOptionButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const speed = parseFloat(this.getAttribute('data-speed'));
-            const newButtonImage = this.getAttribute('data-button-image');
-            videoPlayer.playbackRate = speed;
-            speedBtn.querySelector('img').src = newButtonImage;
-            speedOptions.style.display = 'none';
-        });
-    });
 
     // Sleep timer
     sleepTimerBtn.addEventListener('click', () => {
@@ -102,6 +98,31 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Playback has been paused due to sleep timer.');
         }, minutes * 60 * 1000);
     }
+
+    // passcode
+    // When the video ends, display the passcode
+    videoPlayer.addEventListener('ended', function() {
+        passcodeContainer.style.display = 'block'; // Show the passcode container
+    });
+    
+    
+
+    /* Disabled Speed controls
+    speedBtn.addEventListener('click', () => {
+        speedOptions.style.display = (speedOptions.style.display === 'block') ? 'none' : 'block';
+    });
+
+    speedOptionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const speed = parseFloat(this.getAttribute('data-speed'));
+            const newButtonImage = this.getAttribute('data-button-image');
+            videoPlayer.playbackRate = speed;
+            speedBtn.querySelector('img').src = newButtonImage;
+            speedOptions.style.display = 'none';
+        });
+    }); */
+
+    
 });
 
 function showNotification(message) {
@@ -115,3 +136,5 @@ function showNotification(message) {
         notification.style.display = 'none';
     }, 3000); // Hide after 3 seconds
 }
+
+
