@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the video ends, display the passcode
     videoPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        pauseBtn.src = videoPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
         progressSlider.addEventListener('input', function () {
             videoPlayer.currentTime = (videoPlayer.duration / 100) * progressSlider.value;
         });

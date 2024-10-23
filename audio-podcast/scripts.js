@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Audio controls
     backBtn.addEventListener('click', () => audioPlayer.currentTime -= 15);
     pauseBtn.addEventListener('click', () => {
-        audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
-        pauseBtn.src = audioPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
+    audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
+    pauseBtn.src = audioPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
     });
     //forwardBtn.addEventListener('click', () => audioPlayer.currentTime += 15);
 
@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the audio ends, display the passcode
     audioPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        pauseBtn.src = audioPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
         progressSlider.addEventListener('input', function () {
             audioPlayer.currentTime = (audioPlayer.duration / 100) * progressSlider.value;
         });

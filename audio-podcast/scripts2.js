@@ -117,6 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the audio ends, display the passcode
     audioPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        pauseBtn.src = audioPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
         progressSlider.addEventListener('input', function () {
             audioPlayer.currentTime = (audioPlayer.duration / 100) * progressSlider.value;
         });
