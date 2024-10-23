@@ -17,9 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const forwardPopup = document.getElementById('forwardBtnOptions');
     const passcodeContainer = document.getElementById('passcode-container');
 
+    function handleForwardClick() {
+        togglePopup(forwardPopup);
+    }
     // no functionality for speed and forward buttons
     speedBtn.addEventListener("click", () => togglePopup(speedPopup));
-    forwardBtn.addEventListener("click", () => togglePopup(forwardPopup));
+    forwardBtn.addEventListener("click", handleForwardClick);
 
     // Close popups if clicked outside
     document.addEventListener('click', function(event) {
@@ -48,10 +51,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
         progressSlider.value = progress;
         progressSlider.style.background = `linear-gradient(to right, white ${progress}%, #4e5152 ${progress}%)`;
-    });
-
-    progressSlider.addEventListener('input', function () {
-        videoPlayer.currentTime = (videoPlayer.duration / 100) * progressSlider.value;
     });
 
     videoPlayer.addEventListener('loadedmetadata', function() {
@@ -103,7 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the video ends, display the passcode
     videoPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        pauseBtn.src = videoPlayer.paused ? 'control images/spotifyplay.png' : 'control images/spotifypause.png';
+        progressSlider.addEventListener('input', function () {
+            videoPlayer.currentTime = (videoPlayer.duration / 100) * progressSlider.value;
+        });
+        forwardBtn.removeEventListener("click", handleForwardClick);
+        forwardBtn.addEventListener('click', () => videoPlayer.currentTime += 15);
     });
+
     
     
 

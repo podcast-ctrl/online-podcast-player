@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" user-scalable="yes">
+    <title>Huberman Lab | Podcast on Spotify</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="logos and cover images/spotifySymbol.png">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logos and cover images/spotifyLogo.png" alt="Spotify Logo" class="spotify-logo"><br>
+        </div>
+        <div class="podcast">
+            <div class="upper-container">
+                <img src="control images/spotifybackarrow.png" alt="Spotify Back Arrow" class="spotify-back-arrow">
+                <p class="upper-podcast-name">Huberman Lab</p><br>
+                <img src="control images/threedotsmenu.png" alt="Three Dots Menu" id="threeDotsMenu" class="upper-icon">
+            </div>
+            <img src="logos and cover images/HubermanLabCover.jpeg" alt="Podcast Cover" class="podcast-cover" draggable="true" id="cover1"><br>
+            <div class="podcast-details">
+                <h2 class="episode-title">Developing A Rational Approach To Supplementation For Health & Performance</h2>
+                <p class="podcast-name">Huberman Lab</p><br>
+            </div>
+            <div class="audio-container">
+                <audio id="audioPlayer">
+                    <source src="audios/Traditional without _post_ ad comment.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="progress-slider-container">
+                    <input type="range" id="progressSlider" class="progress-slider" min="0" max="100" step="0.1" value="0">
+                    <div class="time-display">
+                        <span id="currentTime">00:00</span>
+                        <span id="totalTime">-02:35</span>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="speed-control">
+                    <button id="speedBtn" class="control-button">
+                        <img src="speed images/speed1x.png" alt="1×" class="speed-icon">
+                    </button>
+                    <div id="speedOptions" class="popup-options">
+                        <p>Functionality is disabled</p>
+                    </div>                    
+                </div>
+                <img id="backBtn" class="control-image" src="control images/spotifyback15.png" alt="Back">
+                <img id="pauseBtn" class="control-image" src="control images/spotifyplay.png" alt="Pause">
+                <img id="forwardBtn" class="control-image" src="control images/spotifyforward15.png" alt="Forward">
+                <div id="forwardBtnOptions" class="popup-options">
+                    <p>Functionality is disabled</p>
+                </div>  
+                <img id="sleepTimerBtn" class="control-image" src="control images/sleeptimer.png" alt="Sleep Timer">
+                <div id="sleepTimerOptions" class="popup-options">
+                    <p class="sleep-timer-title">Sleep Timer</p>
+                    <button class="timer-option" data-time="5">5 minutes</button>
+                    <button class="timer-option" data-time="10">10 minutes</button>
+                    <button class="timer-option" data-time="15">15 minutes</button>
+                </div>
+                <div id="notification" class="notification" style="display: none;"></div>
+            </div>
+            <div class="sponsored-box">
+                <div class="sponsored-header">Sponsored</div>
+                <div class="sponsored-content">
+                    <img class="company-logo" src="logos and cover images/AG1logo.png" alt="Company Logo">
+                    <div class="company-details">
+                        <div class="company-name">Athletic Greens</div>
+                        <div class="company-tagline">Learn more about AG1.</div>
+                        <a href="https://drinkag1.com/partner/huberman/ctr?utm_source=podcast&utm_medium=partnerships&utm_campaign=drhuberman_d35ct__a1294__o56&utm_term=variable__a1294__o56&utm_content=7-Health-Wellness__a1294__o56" class="sponsored-button" target="_blank">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            <div id="passcode-container" class="passcode-overlay">
+                Passcode: <span id="passcode">M9B2Q</span>
+            </div>     
+        </div>                 
+    </div>
+    <script src="scripts2.js"></script>
+</body>
+</html>

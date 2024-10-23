@@ -24,13 +24,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const forwardPopup = document.getElementById('forwardBtnOptions');
     const passcodeContainer = document.getElementById('passcode-container');
 
+    function handleForwardClick() {
+        togglePopup(forwardPopup);
+    }
+
     // Toggle popups for choose device, share, queue, and related episodes
     chooseDeviceBtn.addEventListener('click', () => togglePopup(chooseDeviceOptions));
     shareBtn.addEventListener('click', () => togglePopup(shareOptions));
     queueBtn.addEventListener('click', () => togglePopup(queueOptions));
     relatedEpisodesBox.addEventListener("click", () => togglePopup(relatedEpisodesPopup));
     speedBtn.addEventListener("click", () => togglePopup(speedPopup));
-    forwardBtn.addEventListener("click", () => togglePopup(forwardPopup));
+    forwardBtn.addEventListener("click", handleForwardClick);
 
 
     // Close popups if clicked outside
@@ -68,10 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
         progressSlider.value = progress;
         progressSlider.style.background = `linear-gradient(to right, white ${progress}%, #4e5152 ${progress}%)`;
-    });
-
-    progressSlider.addEventListener('input', function () {
-        videoPlayer.currentTime = (videoPlayer.duration / 100) * progressSlider.value;
     });
 
     videoPlayer.addEventListener('loadedmetadata', function() {
@@ -124,6 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the video ends, display the passcode
     videoPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        progressSlider.addEventListener('input', function () {
+            videoPlayer.currentTime = (videoPlayer.duration / 100) * progressSlider.value;
+        });
+        forwardBtn.removeEventListener("click", handleForwardClick);
+        forwardBtn.addEventListener('click', () => videoPlayer.currentTime += 15);
     });
 
     /* Disabled Speed controls

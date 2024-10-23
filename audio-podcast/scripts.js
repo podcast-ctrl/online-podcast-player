@@ -25,13 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const forwardPopup = document.getElementById('forwardBtnOptions');
     const passcodeContainer = document.getElementById('passcode-container');
 
+    function handleForwardClick() {
+        togglePopup(forwardPopup);
+    }
+
     // Toggle popups for choose device, share, queue, and related episodes
     chooseDeviceBtn.addEventListener('click', () => togglePopup(chooseDeviceOptions));
     shareBtn.addEventListener('click', () => togglePopup(shareOptions));
     queueBtn.addEventListener('click', () => togglePopup(queueOptions));
     relatedEpisodesBox.addEventListener("click", () => togglePopup(relatedEpisodesPopup));
     speedBtn.addEventListener("click", () => togglePopup(speedPopup));
-    forwardBtn.addEventListener("click", () => togglePopup(forwardPopup));
+    forwardBtn.addEventListener("click", handleForwardClick);
 
     // Close popups if clicked outside
     document.addEventListener('click', function(event) {
@@ -70,9 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         progressSlider.style.background = `linear-gradient(to right, white ${progress}%, #487286 ${progress}%)`;
     });
 
-    progressSlider.addEventListener('input', function () {
-        audioPlayer.currentTime = (audioPlayer.duration / 100) * progressSlider.value;
-    });
 
     audioPlayer.addEventListener('loadedmetadata', function() {
         totalTimeDisplay.textContent = '-' + formatTime(audioPlayer.duration);
@@ -138,6 +139,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // When the audio ends, display the passcode
     audioPlayer.addEventListener('ended', function() {
         passcodeContainer.style.display = 'block'; // Show the passcode container
+        progressSlider.addEventListener('input', function () {
+            audioPlayer.currentTime = (audioPlayer.duration / 100) * progressSlider.value;
+        });
+        forwardBtn.removeEventListener("click", handleForwardClick);
+        forwardBtn.addEventListener('click', () => audioPlayer.currentTime += 15);
+
     });
 });
 
